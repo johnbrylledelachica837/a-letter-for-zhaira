@@ -1560,3 +1560,214 @@ button:active {
 .hide-screen {
     display: none !important;
 }
+
+/* LOGIN SCREEN */
+
+.login-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(5, 5, 25, 0.75);
+}
+
+.login-box {
+    width: 90%;
+    max-width: 380px;
+    padding: 40px 30px;
+
+    text-align: center;
+
+    background: rgba(20, 15, 40, 0.85);
+    border: 1px solid rgba(255, 180, 210, 0.35);
+    border-radius: 25px;
+
+    box-shadow: 0 0 35px rgba(255, 120, 180, 0.25);
+}
+
+.login-heart {
+    font-size: 45px;
+    color: #ffb6d5;
+    margin-bottom: 5px;
+}
+
+.login-box h1 {
+    font-family: "Caveat", cursive;
+    font-size: 45px;
+    color: #ffe5ee;
+    margin: 0;
+}
+
+.login-subtitle {
+    font-family: "Cormorant Garamond", serif;
+    color: #d8c8d5;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    color: #ffe5ee;
+    font-family: "Cormorant Garamond", serif;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 12px 15px;
+
+    border: 1px solid rgba(255, 180, 210, 0.35);
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+
+    outline: none;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px;
+}
+
+.input-group input:focus {
+    border-color: rgba(255, 180, 210, 0.8);
+    box-shadow: 0 0 12px rgba(255, 120, 180, 0.25);
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+#loginButton {
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: rgba(220, 100, 150, 0.75);
+    color: white;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+#loginButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(255, 120, 180, 0.5);
+}
+
+#loginError {
+    color: #ff9dbd;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    margin-top: 15px;
+}
+/* LOGIN MODE - HIDE EVERYTHING BEHIND LOGIN */
+
+body.login-active > *:not(#loginScreen) {
+    display: none !important;
+}
+
+body.login-active {
+    overflow: hidden;
+}
+
+body.login-active #loginScreen {
+    display: flex !important;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+}
+
+/* =========================
+   MEMORY CLICK REVEAL
+   ========================= */
+
+.memory-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+/* Memory picture */
+
+.memory-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* SECRET MESSAGE
+   Hidden by default */
+
+.memory-photo .secret-message {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 20px;
+
+    text-align: center;
+
+    color: white;
+
+    font-family: "Caveat", cursive;
+    font-size: 28px;
+    line-height: 1.2;
+
+    background: rgba(20, 5, 30, 0.55);
+
+    text-shadow:
+        0 0 5px rgba(255, 180, 220, 1),
+        0 0 15px rgba(255, 100, 180, 0.9);
+
+    /* HIDDEN */
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.08);
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease,
+        transform 0.4s ease;
+
+    pointer-events: none;
+}
+
+
+/* SHOW MESSAGE AFTER CLICK */
+
+.memory-photo.show-message .secret-message {
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1);
+}
